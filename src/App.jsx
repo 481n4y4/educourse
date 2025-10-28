@@ -1,0 +1,111 @@
+import React from "react";
+
+export default function App() {
+  return (
+    <div className="min-h-screen bg-gray-100">
+      <header className="bg-white shadow-md">
+        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+          <h1 className="text-xl sm:text-2x1 font-bold text-gray-800 ">
+            Intinya Ini Landing Page
+          </h1>
+          <nav className="hidden md:flex space-x-4">
+            <a href="#home" className="text-gray-600 hover:text-blue-500">
+              Home
+            </a>
+            <a href="#about" className="text-gray-600 hover:text-blue-500">
+              About
+            </a>
+            <a href="#contact" className="text-gray-600 hover:text-blue-500">
+              Contact
+            </a>
+          </nav>
+
+          <nav className="md:hidden flex space-x-4 text-sm">
+            <a href="#home" className="text-gray-600 hover:text-blue-500">
+              Home
+            </a>
+            <a href="#about" className="text-gray-600 hover:text-blue-500">
+              About
+            </a>
+            <a href="#contact" className="text-gray-600 hover:text-blue-500">
+              Contact
+            </a>
+          </nav>
+        </div>
+      </header>
+
+      <section id="home" className="bg-green-400 text-white py-10 sm:py-15">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3x1 sm:text-4 font-bold mb-2">
+            Selamat Datang di Landing Page!
+          </h2>
+          <p className="text-lg sm:text-xl">
+            Landing Page ini dibuat dengan menggunakan Tailwind CSS
+          </p>
+        </div>
+      </section>
+
+      <section id="about" className="py-12 sm:py-16 bg-white">
+        <div className="container mx-auto px-4 md:h-140">
+          <h3 className="text-2x1 sm:text-3xl md:text-5xl font-bold text-center mb-8 text-gary-800">
+            Tentang Landing Page
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            <div className="text-center">
+              <div className="bg-blue-100 w-12 h-12 sm:w-16 sm:h-16 md:w-34 md:h-34 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-blue-500 text-xl sm:text-2xl md:text-6xl">
+                  🪩
+                </span>
+              </div>
+              <h4 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 text-gray-800">
+                Simple
+              </h4>
+              <p className="text-sm sm:text-base md:text-lg text-gray-600">
+                Landing Page ini dibuat secara simple
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="bg-blue-100 w-12 h-12 sm:w-16 sm:h-16 md:w-34 md:h-34 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-blue-500 text-xl sm:text-2xl md:text-6xl">
+                  🏫
+                </span>
+              </div>
+              <h4 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 text-gray-800">
+                Educourse
+              </h4>
+              <p className="text-sm sm:text-base md:text-lg text-gray-600">
+                Dibuat dengan penuh Cinta kasih
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="bg-blue-100 w-12 h-12 sm:w-16 sm:h-16 md:w-34 md:h-34 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-blue-500 text-xl sm:text-2xl md:text-6xl">
+                  🗣️
+                </span>
+              </div>
+              <h4 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 text-gray-800">
+                Easy
+              </h4>
+              <p className="text-sm sm:text-base md:text-lg text-gray-600">
+                Dengan tailwind css, kita dapat membuat tampilan kustom dengan mudah
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" className="py-8 sm:py-12 bg-amber-400 text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h3 className="text-xl sm:text-2xl font-bold">Tentang Landing Page</h3>
+          <p className="text-base sm:text-xl">Untuk informasi lebih lanjut mengenai web ini, silahkan hubungi kami lewat akun instagram: @educourse.id</p>
+        </div>
+      </section>
+      
+      <footer  className="py-4 sm:py-6 bg-amber-900 text-white">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-base sm:text-xl">$copy; 2025 Landing Page. All rights reserved</p>
+        </div>
+      </footer>
+    </div>
+  );
+}
