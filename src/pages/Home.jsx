@@ -9,20 +9,20 @@ export default function Home() {
         id="home"
         className="bg-green-400 text-white py-10 sm:py-15 min-h-64"
       >
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl sm:text-4x1 font-bold mb-2">
-            Selamat Datang di Landing Page!
+        <div className="flex flex-col gap-5 container mx-auto px-4 text-center">
+          <h2 className="text-3xl sm:text-4x1 font-bold">
+            Belajar Lebih Mudah, Di Mana Saja, Kapan Saja
           </h2>
           <p className="text-lg sm:text-xl">
-            Landing Page ini dibuat dengan menggunakan Tailwind CSS
+            Educourse menghadirkan kursus online berkualitas dari para ahli
+            untuk membantu Anda menguasai keterampilan baru dan mencapai tujuan
+            belajar Anda.
           </p>
+
+          <button className="p-4 bg-blue-400 rounded-lg ">Mulai Belajar Sekarang</button>
         </div>
       </section>
-
-      <section
-        id="about"
-        className="flex items-center py-12 sm:py-16 bg-white"
-      >
+      <section id="about" className="flex items-center py-12 sm:py-16 bg-white">
         <div className="container mx-auto px-4">
           <h3 className="text-2x1 sm:text-3xl md:text-5xl font-bold text-center mb-8 text-gary-800">
             Tentang Landing Page
