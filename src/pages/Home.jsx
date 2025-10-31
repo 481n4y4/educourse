@@ -5,9 +5,12 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-100">
       <Navbar />
-      <section id="home" className="bg-green-400 text-white py-10 sm:py-15">
+      <section
+        id="home"
+        className="bg-green-400 text-white py-10 sm:py-15 min-h-64"
+      >
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3x1 sm:text-4 font-bold mb-2">
+          <h2 className="text-3xl sm:text-4x1 font-bold mb-2">
             Selamat Datang di Landing Page!
           </h2>
           <p className="text-lg sm:text-xl">
@@ -16,8 +19,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="py-12 sm:py-16 bg-white">
-        <div className="container mx-auto px-4 md:h-140">
+      <section
+        id="about"
+        className="flex items-center py-12 sm:py-16 bg-white"
+      >
+        <div className="container mx-auto px-4">
           <h3 className="text-2x1 sm:text-3xl md:text-5xl font-bold text-center mb-8 text-gary-800">
             Tentang Landing Page
           </h3>
@@ -78,7 +84,7 @@ export default function Home() {
         </div>
       </section>
 
-      <Footer/>      
+      <Footer />
     </div>
   );
 }

@@ -3,7 +3,7 @@ export default function Navbar() {
         <header className="bg-white shadow-md">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <h1 className="text-xl sm:text-2x1 font-bold text-gray-800 ">
-            Intinya Ini Landing Page
+            Educourse
           </h1>
           <nav className="hidden md:flex space-x-4">
             <a href="#home" className="text-gray-600 hover:text-blue-500">
