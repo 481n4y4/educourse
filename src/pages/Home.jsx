@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Contact from "../components/Contact";
 
 export default function Home() {
   return (
@@ -19,7 +20,11 @@ export default function Home() {
             belajar Anda.
           </p>
 
-          <button className="p-4 bg-blue-400 rounded-lg ">Mulai Belajar Sekarang</button>
+          <div>
+            <button className="p-4 bg-blue-400 rounded-lg ">
+              Mulai Belajar Sekarang
+            </button>
+          </div>
         </div>
       </section>
       <section id="about" className="flex items-center py-12 sm:py-16 bg-white">
@@ -84,6 +89,7 @@ export default function Home() {
         </div>
       </section>
 
+      <Contact />
       <Footer />
     </div>
   );
