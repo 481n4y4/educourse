@@ -1,15 +1,22 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import educourse from "../assets/img/logo.png";
 
 export default function Home() {
   return (
     <main className="min-h-screen">
       <Navbar />
+      {/* Hero */}
       <section
         id="home"
-        className=" py-10 sm:py-15 min-h-screen flex items-center"
+        className=" py-10 sm:py-15 min-h-screen flex items-center justify-center"
       >
-        <div className="flex flex-col max-w-5xl gap-5 mx-auto px-4 text-center">
+        <div className="flex flex-col items-center text-center justify-center max-w-5xl gap-5 mx-auto px-4 ">
+          <img
+            src={educourse}
+            alt="educourse"
+            className="object-cover w-64 sm:w-80 md:w-96"
+          />
           <h2 className="text-3xl sm:text-4x1 font-bold">
             Belajar Lebih Cerdas, Raih Impianmu Bersama Educourse
           </h2>
@@ -26,6 +33,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* About */}
       <section
         id="about"
         className="flex items-center py-12 sm:py-16 bg-gray-100 min-h-screen"
