@@ -1,33 +1,35 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import Contact from "../components/Contact";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gray-100">
+    <main className="min-h-screen">
       <Navbar />
       <section
         id="home"
-        className="bg-green-400 text-white py-10 sm:py-15 min-h-64"
+        className=" py-10 sm:py-15 min-h-screen flex items-center"
       >
-        <div className="flex flex-col gap-5 container mx-auto px-4 text-center">
+        <div className="flex flex-col max-w-5xl gap-5 mx-auto px-4 text-center">
           <h2 className="text-3xl sm:text-4x1 font-bold">
-            Belajar Lebih Mudah, Di Mana Saja, Kapan Saja
+            Belajar Lebih Cerdas, Raih Impianmu Bersama Educourse
           </h2>
           <p className="text-lg sm:text-xl">
-            Educourse menghadirkan kursus online berkualitas dari para ahli
-            untuk membantu Anda menguasai keterampilan baru dan mencapai tujuan
-            belajar Anda.
+            Tingkatkan keterampilanmu dengan ratusan kursus online dari para
+            ahli di bidang teknologi, bisnis, desain, dan banyak lagi — bisa
+            diakses kapan pun, di mana pun.
           </p>
 
           <div>
-            <button className="p-4 bg-blue-400 rounded-lg ">
+            <button className="p-4 bg-blue-400 rounded-lg text-white">
               Mulai Belajar Sekarang
             </button>
           </div>
         </div>
       </section>
-      <section id="about" className="flex items-center py-12 sm:py-16 bg-white">
+      <section
+        id="about"
+        className="flex items-center py-12 sm:py-16 bg-gray-100 min-h-screen"
+      >
         <div className="container mx-auto px-4">
           <h3 className="text-2x1 sm:text-3xl md:text-5xl font-bold text-center mb-8 text-gary-800">
             Tentang Landing Page
@@ -88,9 +90,7 @@ export default function Home() {
           </p>
         </div>
       </section>
-
-      <Contact />
       <Footer />
-    </div>
+    </main>
   );
 }
