@@ -11,7 +11,11 @@ import {
   faGraduationCap, 
   faLaptopCode, 
   faUsers, 
-  faChartLine 
+  faChartLine,
+  faPlayCircle,
+  faStar,
+  faUserGraduate,
+  faArrowRight
 } from '@fortawesome/free-solid-svg-icons';
 
 export default function Home() {
@@ -22,60 +26,63 @@ export default function Home() {
       {/* Hero Section */}
       <section
         id="home"
-        className="py-20 sm:py-28 min-h-screen flex items-center justify-center bg-green-50"
+        className="py-20 sm:py-28 min-h-screen flex items-center justify-center bg-gradient-to-br from-teal-50 to-blue-50 relative overflow-hidden"
       >
-        <div className="flex flex-col items-center text-center justify-center max-w-6xl gap-8 mx-auto px-4">
-          <img
-            src={educourse}
-            alt="EduCourse"
-            className="object-cover w-64 sm:w-80 md:w-96 mb-4"
-          />
+        {/* Background Elements */}
+        <div className="absolute top-10 left-10 w-20 h-20 bg-teal-200 rounded-full opacity-20 animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-16 h-16 bg-teal-300 rounded-full opacity-30 animate-bounce"></div>
+        <div className="absolute top-1/2 right-1/4 w-12 h-12 bg-teal-400 rounded-full opacity-25 animate-ping"></div>
+
+        <div className="flex flex-col items-center text-center justify-center max-w-6xl gap-8 mx-auto px-4 relative z-10">
+          <div className="flex flex-col items-center">
+            <img
+              src={educourse}
+              alt="EduCourse"
+              className="object-cover w-64 sm:w-80 md:w-96 mb-6 drop-shadow-lg"
+            />
+            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-teal-200 mb-6">
+              <span className="w-2 h-2 bg-teal-500 rounded-full animate-pulse"></span>
+              <span className="text-sm font-medium text-teal-700">1,200+ pelajar aktif hari ini</span>
+            </div>
+          </div>
+          
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-800 leading-tight">
-            Transformasi Masa Depan Anda
-            <span className="block text-green-600 mt-2">
-              Melalui Pendidikan
+            Wujudkan Potensi
+            <span className="block text-teal-600 mt-2 bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent">
+              Masa Depan Digital
             </span>
           </h1>
           <p className="text-xl sm:text-2xl text-gray-600 max-w-4xl leading-relaxed">
-            Jelajahi ratusan kursus berkualitas tinggi dari instruktur ahli di
-            bidang teknologi, bisnis, desain, dan pengembangan karir. Belajar
-            sesuai jadwal Anda, raih sertifikat, dan tingkatkan karier Anda.
+            Kuasai keterampilan masa depan dengan kurikulum industri terbaru. Dari pemula hingga expert, 
+            temukan jalur belajar yang tepat untuk karir impian Anda.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mt-8">
-            <button className="px-8 py-4 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg shadow-md transition-colors duration-200">
+            <button className="px-8 py-4 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-xl shadow-lg transition-all duration-300 transform hover:scale-105 flex items-center gap-2">
+              <FontAwesomeIcon icon={faPlayCircle} />
               Mulai Belajar Gratis
             </button>
-            <button className="px-8 py-4 bg-white hover:bg-gray-50 text-green-600 font-semibold rounded-lg shadow-md border border-green-600 transition-colors duration-200">
-              Lihat Kursus
+            <button className="px-8 py-4 bg-white hover:bg-gray-50 text-teal-600 font-semibold rounded-xl shadow-lg border border-teal-200 transition-all duration-300 transform hover:scale-105 flex items-center gap-2">
+              Jelajahi Kursus
+              <FontAwesomeIcon icon={faArrowRight} />
             </button>
           </div>
 
           <div className="flex flex-wrap justify-center gap-8 mt-12 text-gray-600">
-            <div className="text-center">
-              <div className="text-2xl sm:text-3xl font-bold text-green-600">
-                10K+
+            {[
+              { number: "15K+", label: "Murid Aktif", icon: faUserGraduate },
+              { number: "650+", label: "Kursus Premium", icon: faLaptopCode },
+              { number: "280+", label: "Instruktur Ahli", icon: faUsers },
+              { number: "98%", label: "Tingkat Kepuasan", icon: faStar }
+            ].map((stat, index) => (
+              <div key={index} className="text-center group">
+                <div className="w-16 h-16 bg-teal-100 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:bg-teal-200 transition-colors duration-300">
+                  <FontAwesomeIcon icon={stat.icon} className="text-teal-600 text-xl" />
+                </div>
+                <div className="text-2xl sm:text-3xl font-bold text-teal-600">{stat.number}</div>
+                <div className="text-sm sm:text-base font-medium text-gray-700">{stat.label}</div>
               </div>
-              <div className="text-sm sm:text-base">Murid Aktif</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl sm:text-3xl font-bold text-green-600">
-                500+
-              </div>
-              <div className="text-sm sm:text-base">Kursus Online</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl sm:text-3xl font-bold text-green-600">
-                200+
-              </div>
-              <div className="text-sm sm:text-base">Instruktur Ahli</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl sm:text-3xl font-bold text-green-600">
-                95%
-              </div>
-              <div className="text-sm sm:text-base">Tingkat Kepuasan</div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -83,113 +90,111 @@ export default function Home() {
       {/* Apa itu Educourse Section */}
       <section className="py-20 sm:py-24 bg-white min-h-screen flex items-center justify-center">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="flex justify-center items-center order-2 lg:order-1">
-              <img 
-                src={educourse} 
-                alt="educourse" 
-                className="w-full max-w-md lg:max-w-lg rounded-lg" 
-              />
+              <div className="relative">
+                <img 
+                  src={educourse} 
+                  alt="educourse" 
+                  className="w-full md:w-96 max-w-lg rounded-2xl" 
+                />
+                <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-teal-500 rounded-2xl -z-10"></div>
+                <div className="absolute -top-6 -left-6 w-20 h-20 bg-teal-300 rounded-2xl -z-10"></div>
+              </div>
             </div>
 
             <div className="flex flex-col justify-center order-1 lg:order-2">
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-6">
-                Apa itu Educourse?
+              <div className="inline-flex items-center gap-2 bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-medium w-fit mb-6">
+                <span>Tentang Kami</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-6 leading-tight">
+                Revolusi <span className="text-teal-600">Pembelajaran Digital</span> untuk Semua
               </h2>
-              <p className="text-lg text-gray-600 leading-relaxed">
-                Educourse adalah sebuah platform pembelajaran daring (online
-                learning platform) yang dirancang untuk mendukung pengembangan
-                diri secara berkelanjutan bagi berbagai kalangan, mulai dari
-                pelajar sekolah, mahasiswa, hingga profesional. Platform ini
-                menggabungkan pendekatan interaktif, praktis, dan berbasis proyek
-                untuk memastikan pembelajaran yang relevan dan aplikatif.
+              <p className="text-lg text-gray-600 leading-relaxed mb-6">
+                EduCourse adalah ekosistem pembelajaran digital yang menghubungkan passion dengan purpose. 
+                Kami tidak hanya menyediakan kursus, tetapi membangun komunitas pembelajar seumur hidup 
+                yang siap menghadapi tantangan era digital.
               </p>
+              <p className="text-lg text-gray-600 leading-relaxed mb-8">
+                Dengan pendekatan project-based learning dan mentorship langsung dari praktisi industri, 
+                kami memastikan setiap materi yang diajarkan relevan dengan kebutuhan pasar kerja terkini.
+              </p>
+              
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { number: "50+", label: "Partner Industri" },
+                  { number: "24/7", label: "Akses Belajar" },
+                  { number: "1-on-1", label: "Mentorship" },
+                  { number: "100%", label: "Project Based" }
+                ].map((item, index) => (
+                  <div key={index} className="text-center p-4 bg-teal-50 rounded-xl">
+                    <div className="text-xl font-bold text-teal-600">{item.number}</div>
+                    <div className="text-sm text-gray-600">{item.label}</div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Tujuan Utama Section */}
-      <section className="py-20 bg-green-50">
+      <section className="py-20 bg-gradient-to-br from-teal-50 to-blue-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-white text-teal-700 px-4 py-2 rounded-full text-sm font-medium w-fit mx-auto mb-6 shadow-sm">
+              <span>Visi & Misi</span>
+            </div>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">
-              Tujuan Utama Educourse
+              Membangun <span className="text-teal-600">Generasi Pembelajar</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Kami berkomitmen untuk menciptakan pengalaman belajar yang transformatif 
-              dan berdampak positif bagi perkembangan karir dan kehidupan peserta.
+              Kami berkomitmen menciptakan dampak berkelanjutan melalui pendidikan yang inklusif, 
+              praktis, dan transformatif.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Tujuan 1 */}
-            <div className="bg-white rounded-xl p-6 hover:shadow-lg transition-all duration-300 border border-green-100">
-              <div className="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center mb-4">
-                <FontAwesomeIcon 
-                  icon={faGraduationCap} 
-                  className="text-green-600 text-2xl" 
-                />
+            {[
+              {
+                icon: faGraduationCap,
+                title: "Demokratisasi Pendidikan",
+                description: "Membuka akses pendidikan berkualitas tinggi bagi semua kalangan dengan model harga yang inklusif dan berkelanjutan."
+              },
+              {
+                icon: faLaptopCode,
+                title: "Skills yang Relevan",
+                description: "Kurikulum dirancang bersama industri untuk memastikan keterampilan yang dipelajari sesuai kebutuhan pasar kerja."
+              },
+              {
+                icon: faUsers,
+                title: "Komunitas Global",
+                description: "Jaringan pembelajar dan mentor dari berbagai background untuk kolaborasi dan pertukaran ide tanpa batas."
+              },
+              {
+                icon: faChartLine,
+                title: "Pathway Karir",
+                description: "Panduan karir personalisasi dan koneksi langsung dengan perusahaan partner untuk opportunities terbaik."
+              }
+            ].map((tujuan, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-2xl p-8 hover:shadow-xl transition-all duration-500 border border-teal-100 group hover:border-teal-200"
+              >
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-500 to-blue-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <FontAwesomeIcon 
+                    icon={tujuan.icon} 
+                    className="text-white text-2xl" 
+                  />
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-4 leading-tight">
+                  {tujuan.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {tujuan.description}
+                </p>
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-3">
-                Akses Pendidikan Berkualitas
-              </h3>
-              <p className="text-gray-600">
-                Memberikan akses pendidikan berkualitas tinggi bagi semua kalangan 
-                dengan harga terjangkau dan fleksibilitas waktu belajar.
-              </p>
-            </div>
-
-            {/* Tujuan 2 */}
-            <div className="bg-white rounded-xl p-6 hover:shadow-lg transition-all duration-300 border border-green-100">
-              <div className="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center mb-4">
-                <FontAwesomeIcon 
-                  icon={faLaptopCode} 
-                  className="text-green-600 text-2xl" 
-                />
-              </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-3">
-                Pembelajaran Praktis
-              </h3>
-              <p className="text-gray-600">
-                Menyediakan konten pembelajaran yang praktis dan aplikatif, 
-                langsung dapat diterapkan dalam dunia kerja dan kehidupan sehari-hari.
-              </p>
-            </div>
-
-            {/* Tujuan 3 */}
-            <div className="bg-white rounded-xl p-6 hover:shadow-lg transition-all duration-300 border border-green-100">
-              <div className="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center mb-4">
-                <FontAwesomeIcon 
-                  icon={faUsers} 
-                  className="text-green-600 text-2xl" 
-                />
-              </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-3">
-                Komunitas Pembelajar
-              </h3>
-              <p className="text-gray-600">
-                Membangun komunitas pembelajar yang saling mendukung, berbagi pengetahuan, 
-                dan berkolaborasi dalam proyek nyata.
-              </p>
-            </div>
-
-            {/* Tujuan 4 */}
-            <div className="bg-white rounded-xl p-6 hover:shadow-lg transition-all duration-300 border border-green-100">
-              <div className="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center mb-4">
-                <FontAwesomeIcon 
-                  icon={faChartLine} 
-                  className="text-green-600 text-2xl" 
-                />
-              </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-3">
-                Pengembangan Karir
-              </h3>
-              <p className="text-gray-600">
-                Membantu peserta mengembangkan keterampilan yang dibutuhkan 
-                di pasar kerja dan meningkatkan prospek karir mereka.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -201,51 +206,73 @@ export default function Home() {
       >
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-medium w-fit mx-auto mb-6">
+              <span>Keunggulan Platform</span>
+            </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-              Mengapa Memilih EduCourse?
+              Mengapa <span className="text-teal-600">EduCourse</span>?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Platform pembelajaran online terdepan yang memberikan pengalaman
-              belajar terbaik untuk masa depan karir Anda
+              Pengalaman belajar yang dirancang untuk kesuksesan jangka panjang dengan teknologi terkini
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
-                icon: "🎓",
-                name: "Kurikulum Terupdate",
-                desc: "Materi pembelajaran selalu diperbarui mengikuti perkembangan industri dan teknologi terbaru",
+                icon: "📚",
+                name: "Learning Path",
+                desc: "Jalur belajar terstruktur dari fundamental hingga advanced dengan milestone yang jelas"
               },
               {
-                icon: "👨‍🏫",
-                name: "Instruktur Berpengalaman",
-                desc: "Diajar oleh praktisi industri dengan pengalaman bertahun-tahun di bidangnya masing-masing",
+                icon: "👨‍💼",
+                name: "Industry Mentor",
+                desc: "1-on-1 mentorship langsung dari praktisi di perusahaan teknologi terkemuka"
               },
               {
-                icon: "💻",
-                name: "Fleksibel",
-                desc: "Akses kursus kapan saja, di mana saja melalui berbagai perangkat tanpa batasan waktu",
+                icon: "🔄",
+                name: "Live Updates",
+                desc: "Konten selalu diperbarui real-time mengikuti perkembangan teknologi terbaru"
               },
               {
-                icon: "📜",
-                name: "Sertifikat Resmi",
-                desc: "Dapatkan sertifikat kelulusan yang diakui industri untuk meningkatkan nilai CV Anda",
+                icon: "🎯",
+                name: "Career Support",
+                desc: "Bimbingan portfolio, persiapan interview, dan rekomendasi ke perusahaan partner"
               },
+              {
+                icon: "📱",
+                name: "Multi-Device",
+                desc: "Akses seamless di desktop, tablet, dan mobile dengan sync otomatis"
+              },
+              {
+                icon: "🤝",
+                name: "Peer Learning",
+                desc: "Kolaborasi dengan cohort members dalam project kelompok dan code review"
+              },
+              {
+                icon: "⚡",
+                name: "Fast Track",
+                desc: "Program intensif untuk karir switch dalam 3-6 bulan dengan job guarantee"
+              },
+              {
+                icon: "🌍",
+                name: "Global Certificate",
+                desc: "Sertifikat yang diakui internasional dengan verifikasi digital"
+              }
             ].map((feature, index) => (
               <div
                 key={index}
-                className="bg-green-50 rounded-lg p-8 text-center hover:shadow-lg transition-all duration-300 border border-green-200"
+                className="bg-gradient-to-br from-white to-teal-50 rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-500 border border-teal-100 group hover:border-teal-200"
               >
-                <div className="bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="text-green-600 text-3xl">
+                <div className="bg-gradient-to-br from-teal-500 to-blue-500 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <span className="text-white text-2xl">
                     {feature.icon}
                   </span>
                 </div>
-                <h3 className="text-xl font-bold mb-4 text-gray-800">
+                <h3 className="text-xl font-bold mb-4 text-gray-800 group-hover:text-teal-600 transition-colors duration-300">
                   {feature.name}
                 </h3>
-                <p className="text-gray-600">{feature.desc}</p>
+                <p className="text-gray-600 leading-relaxed">{feature.desc}</p>
               </div>
             ))}
           </div>
@@ -253,15 +280,17 @@ export default function Home() {
       </section>
 
       {/* Popular Courses Preview */}
-      <section className="py-20 bg-green-50">
+      <section className="py-20 bg-gradient-to-br from-teal-50 to-blue-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-white text-teal-700 px-4 py-2 rounded-full text-sm font-medium w-fit mx-auto mb-6 shadow-sm">
+              <span>Kurikulum Populer</span>
+            </div>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">
-              Kursus Populer
+              Temukan <span className="text-teal-600">Jalur Karir</span> Anda
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Temukan kursus paling diminati yang akan membawa karir Anda ke
-              level berikutnya
+              Pilih dari 650+ kursus premium dengan kurikulum industry-standard
             </p>
           </div>
 
@@ -269,50 +298,75 @@ export default function Home() {
             {[
               {
                 title: "Full-Stack Web Development",
-                category: "Teknologi",
-                students: "2.5K",
+                category: "Tech Career",
+                students: "3.2K",
                 rating: "4.9",
+                duration: "6 Bulan",
+                level: "Beginner to Pro",
                 imge: fs,
+                color: "from-purple-500 to-pink-500"
               },
               {
-                title: "Data Science & Machine Learning",
-                category: "Data",
-                students: "1.8K",
+                title: "Data Science & AI Mastery",
+                category: "Data Career",
+                students: "2.4K",
                 rating: "4.8",
+                duration: "8 Bulan",
+                level: "Intermediate",
                 imge: ml,
+                color: "from-blue-500 to-teal-500"
               },
               {
-                title: "Digital Marketing Mastery",
-                category: "Bisnis",
-                students: "1.2K",
+                title: "Digital Marketing Pro",
+                category: "Business",
+                students: "1.8K",
                 rating: "4.7",
+                duration: "4 Bulan",
+                level: "All Levels",
                 imge: dm,
-              },
+                color: "from-orange-500 to-red-500"
+              }
             ].map((course, index) => (
               <div
                 key={index}
-                className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 border border-gray-200"
+                className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 border border-teal-100 group hover:scale-105"
               >
-                <div className="h-48 bg-gray-200">
+                <div className="h-48 bg-gray-200 relative overflow-hidden">
                   <img 
                     src={course.imge} 
                     alt={course.title}
-                    className="w-full h-full object-cover" 
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
                   />
+                  <div className={`absolute top-4 left-4 bg-gradient-to-r ${course.color} text-white px-3 py-1 rounded-full text-sm font-semibold`}>
+                    {course.category}
+                  </div>
+                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-lg text-sm font-semibold text-gray-700">
+                    ⭐ {course.rating}
+                  </div>
                 </div>
                 <div className="p-6">
-                  <span className="text-sm font-semibold text-green-600 bg-green-100 px-3 py-1 rounded-full">
-                    {course.category}
-                  </span>
-                  <h3 className="text-xl font-bold mt-4 mb-3 text-gray-800">
+                  <h3 className="text-xl font-bold mb-3 text-gray-800 group-hover:text-teal-600 transition-colors duration-300">
                     {course.title}
                   </h3>
-                  <div className="flex justify-between text-gray-600">
-                    <span>👨‍🎓 {course.students} Murid</span>
-                    <span>⭐ {course.rating}/5</span>
+                  
+                  <div className="flex items-center gap-4 text-sm text-gray-600 mb-4">
+                    <div className="flex items-center gap-1">
+                      <FontAwesomeIcon icon={faUserGraduate} className="text-teal-500" />
+                      <span>{course.students}</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <FontAwesomeIcon icon={faPlayCircle} className="text-teal-500" />
+                      <span>{course.duration}</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <FontAwesomeIcon icon={faChartLine} className="text-teal-500" />
+                      <span>{course.level}</span>
+                    </div>
                   </div>
-                  <button className="w-full mt-6 py-3 bg-green-50 hover:bg-green-100 text-green-700 font-semibold rounded-lg transition-colors border border-green-200">
-                    Lihat Kursus
+
+                  <button className="w-full py-3 bg-gradient-to-r from-teal-500 to-blue-500 hover:from-teal-600 hover:to-blue-600 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2">
+                    Explore Program
+                    <FontAwesomeIcon icon={faArrowRight} />
                   </button>
                 </div>
               </div>
@@ -320,34 +374,57 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-12">
-            <button className="px-8 py-4 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg shadow-md transition-colors duration-200">
-              Jelajahi Semua Kursus
+            <button className="px-8 py-4 bg-white hover:bg-gray-50 text-teal-600 font-semibold rounded-xl shadow-lg border border-teal-200 transition-all duration-300 transform hover:scale-105 flex items-center gap-2 mx-auto">
+              Lihat Semua Program
+              <FontAwesomeIcon icon={faArrowRight} />
             </button>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-green-600 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-            Siap Memulai Perjalanan Belajar Anda?
+      <section className="py-20 bg-gradient-to-r from-teal-600 to-blue-600 text-white relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-72 h-72 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full translate-x-1/2 translate-y-1/2"></div>
+        </div>
+
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+            Siap <span className="text-teal-200">Transformasi Karir</span> Anda?
           </h2>
-          <p className="text-xl text-green-100 max-w-2xl mx-auto mb-8">
-            Bergabunglah dengan ribuan pelajar lainnya yang telah mengubah karir
-            mereka melalui pendidikan online
+          <p className="text-xl text-teal-100 max-w-2xl mx-auto mb-8 leading-relaxed">
+            Bergabung dengan 15,000+ alumni yang telah meraih kesuksesan di perusahaan teknologi ternama
           </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+            {[
+              "Google", "Microsoft", "Gojek", "Tokopedia", "Traveloka"
+            ].map((company, index) => (
+              <div key={index} className="bg-white/10 backdrop-blur-sm px-6 py-3 rounded-xl border border-white/20">
+                <span className="font-semibold text-white">{company}</span>
+              </div>
+            ))}
+          </div>
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-white hover:bg-gray-100 text-green-600 font-semibold rounded-lg shadow-md transition-colors duration-200">
-              Daftar Sekarang - Gratis
+            <button className="px-8 py-4 bg-white hover:bg-gray-100 text-teal-600 font-semibold rounded-xl shadow-lg transition-all duration-300 transform hover:scale-105 flex items-center gap-2">
+              <FontAwesomeIcon icon={faPlayCircle} />
+              Mulai Sekarang - Gratis
             </button>
             <Link
               to="/contact"
-              className="px-8 py-4 bg-transparent hover:bg-green-700 text-white font-semibold rounded-lg border border-white transition-colors duration-200 text-center"
+              className="px-8 py-4 bg-transparent hover:bg-white/10 text-white font-semibold rounded-xl border border-white transition-all duration-300 transform hover:scale-105 text-center flex items-center justify-center gap-2"
             >
-              Hubungi Kami
+              Konsultasi Gratis
+              <FontAwesomeIcon icon={faArrowRight} />
             </Link>
           </div>
+
+          <p className="text-teal-200 mt-6 text-sm">
+            ✅ 7-day free trial • ✅ Cancel anytime • ✅ No credit card required
+          </p>
         </div>
       </section>
 
