@@ -5,6 +5,14 @@ import ml from "../assets/img/ml.png";
 import dm from "../assets/img/dm.png";
 import fs from "../assets/img/full.png";
 import { Link } from "react-router-dom";
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { 
+  faGraduationCap, 
+  faLaptopCode, 
+  faUsers, 
+  faChartLine 
+} from '@fortawesome/free-solid-svg-icons';
 
 export default function Home() {
   return (
@@ -72,32 +80,124 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Apa itu Educourse Section */}
       <section className="py-20 sm:py-24 bg-white min-h-screen flex items-center justify-center">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                <div className="flex justify-center items-center order-2 lg:order-1">
-                    <img src={educourse} alt="educourse" className="w-full max-w-md lg:max-w-lg rounded-lg" />
-                </div>
-
-                <div className="flex flex-col justify-center order-1 lg:order-2">
-                    <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-6">Apa itu Educourse?</h2>
-                    <p className="text-lg text-gray-600 leading-relaxed">
-                        Educourse adalah sebuah platform pembelajaran daring (online
-                        learning platform) yang dirancang untuk mendukung pengembangan
-                        diri secara berkelanjutan bagi berbagai kalangan, mulai dari
-                        pelajar sekolah, mahasiswa, hingga profesional. Platform ini
-                        menggabungkan pendekatan interaktif, praktis, dan berbasis proyek
-                        untuk memastikan pembelajaran yang relevan dan aplikatif.
-                    </p>
-                </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div className="flex justify-center items-center order-2 lg:order-1">
+              <img 
+                src={educourse} 
+                alt="educourse" 
+                className="w-full max-w-md lg:max-w-lg rounded-lg" 
+              />
             </div>
+
+            <div className="flex flex-col justify-center order-1 lg:order-2">
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-6">
+                Apa itu Educourse?
+              </h2>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                Educourse adalah sebuah platform pembelajaran daring (online
+                learning platform) yang dirancang untuk mendukung pengembangan
+                diri secara berkelanjutan bagi berbagai kalangan, mulai dari
+                pelajar sekolah, mahasiswa, hingga profesional. Platform ini
+                menggabungkan pendekatan interaktif, praktis, dan berbasis proyek
+                untuk memastikan pembelajaran yang relevan dan aplikatif.
+              </p>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
+
+      {/* Tujuan Utama Section */}
+      <section className="py-20 bg-green-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">
+              Tujuan Utama Educourse
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Kami berkomitmen untuk menciptakan pengalaman belajar yang transformatif 
+              dan berdampak positif bagi perkembangan karir dan kehidupan peserta.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Tujuan 1 */}
+            <div className="bg-white rounded-xl p-6 hover:shadow-lg transition-all duration-300 border border-green-100">
+              <div className="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center mb-4">
+                <FontAwesomeIcon 
+                  icon={faGraduationCap} 
+                  className="text-green-600 text-2xl" 
+                />
+              </div>
+              <h3 className="text-xl font-bold text-gray-800 mb-3">
+                Akses Pendidikan Berkualitas
+              </h3>
+              <p className="text-gray-600">
+                Memberikan akses pendidikan berkualitas tinggi bagi semua kalangan 
+                dengan harga terjangkau dan fleksibilitas waktu belajar.
+              </p>
+            </div>
+
+            {/* Tujuan 2 */}
+            <div className="bg-white rounded-xl p-6 hover:shadow-lg transition-all duration-300 border border-green-100">
+              <div className="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center mb-4">
+                <FontAwesomeIcon 
+                  icon={faLaptopCode} 
+                  className="text-green-600 text-2xl" 
+                />
+              </div>
+              <h3 className="text-xl font-bold text-gray-800 mb-3">
+                Pembelajaran Praktis
+              </h3>
+              <p className="text-gray-600">
+                Menyediakan konten pembelajaran yang praktis dan aplikatif, 
+                langsung dapat diterapkan dalam dunia kerja dan kehidupan sehari-hari.
+              </p>
+            </div>
+
+            {/* Tujuan 3 */}
+            <div className="bg-white rounded-xl p-6 hover:shadow-lg transition-all duration-300 border border-green-100">
+              <div className="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center mb-4">
+                <FontAwesomeIcon 
+                  icon={faUsers} 
+                  className="text-green-600 text-2xl" 
+                />
+              </div>
+              <h3 className="text-xl font-bold text-gray-800 mb-3">
+                Komunitas Pembelajar
+              </h3>
+              <p className="text-gray-600">
+                Membangun komunitas pembelajar yang saling mendukung, berbagi pengetahuan, 
+                dan berkolaborasi dalam proyek nyata.
+              </p>
+            </div>
+
+            {/* Tujuan 4 */}
+            <div className="bg-white rounded-xl p-6 hover:shadow-lg transition-all duration-300 border border-green-100">
+              <div className="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center mb-4">
+                <FontAwesomeIcon 
+                  icon={faChartLine} 
+                  className="text-green-600 text-2xl" 
+                />
+              </div>
+              <h3 className="text-xl font-bold text-gray-800 mb-3">
+                Pengembangan Karir
+              </h3>
+              <p className="text-gray-600">
+                Membantu peserta mengembangkan keterampilan yang dibutuhkan 
+                di pasar kerja dan meningkatkan prospek karir mereka.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Features Section */}
       <section
         id="features"
-        className="py-20 sm:py-24 bg-green-50 min-h-screen flex items-center"
+        className="py-20 sm:py-24 bg-white min-h-screen flex items-center"
       >
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -120,7 +220,7 @@ export default function Home() {
               {
                 icon: "👨‍🏫",
                 name: "Instruktur Berpengalaman",
-                desc: "Materi pembelajaran selalu diperbarui mengikuti perkembangan industri dan teknologi terbaru",
+                desc: "Diajar oleh praktisi industri dengan pengalaman bertahun-tahun di bidangnya masing-masing",
               },
               {
                 icon: "💻",
@@ -135,9 +235,9 @@ export default function Home() {
             ].map((feature, index) => (
               <div
                 key={index}
-                className="bg-white rounded-lg p-8 text-center hover:shadow-lg transition-all duration-300 border border-green-100"
+                className="bg-green-50 rounded-lg p-8 text-center hover:shadow-lg transition-all duration-300 border border-green-200"
               >
-                <div className="bg-green-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
                   <span className="text-green-600 text-3xl">
                     {feature.icon}
                   </span>
@@ -153,7 +253,7 @@ export default function Home() {
       </section>
 
       {/* Popular Courses Preview */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-green-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">
@@ -193,8 +293,12 @@ export default function Home() {
                 key={index}
                 className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 border border-gray-200"
               >
-                <div className="h-48">
-                  <img src={course.imge} alt="image" />
+                <div className="h-48 bg-gray-200">
+                  <img 
+                    src={course.imge} 
+                    alt={course.title}
+                    className="w-full h-full object-cover" 
+                  />
                 </div>
                 <div className="p-6">
                   <span className="text-sm font-semibold text-green-600 bg-green-100 px-3 py-1 rounded-full">
@@ -239,7 +343,7 @@ export default function Home() {
             </button>
             <Link
               to="/contact"
-              className="px-8 py-4 bg-transparent hover:bg-green-700 text-white font-semibold rounded-lg border border-white transition-colors duration-200"
+              className="px-8 py-4 bg-transparent hover:bg-green-700 text-white font-semibold rounded-lg border border-white transition-colors duration-200 text-center"
             >
               Hubungi Kami
             </Link>
