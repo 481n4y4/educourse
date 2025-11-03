@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import educourse from "../assets/img/icon.png";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,49 +11,59 @@ export default function Navbar() {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
-            <div className="bg-white text-green-600 w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg shadow-md">
-              E
+            <div className="max-w-[150px]">
+              <img src={educourse} alt="educourse" />
             </div>
-            <h1 className="text-xl sm:text-2xl font-bold">
-              EduCourse
-            </h1>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <Link 
-              to="/" 
+            <Link
+              to="/"
               className="text-white hover:text-green-100 font-medium transition-colors duration-200 py-2"
             >
               Beranda
             </Link>
-            <a 
-              href="#features" 
+            <a
+              href="#features"
               className="text-white hover:text-green-100 font-medium transition-colors duration-200 py-2"
             >
               Fitur
             </a>
-            <Link 
-              to="/contact" 
+            <Link
+              to="/contact"
               className="text-white hover:text-green-100 font-medium transition-colors duration-200 py-2"
             >
               Kontak
             </Link>
-            <button className="bg-white text-green-600 hover:bg-green-50 font-semibold px-6 py-2 rounded-lg transition-colors duration-200 shadow-md">
-              Masuk
-            </button>
+            
           </nav>
 
           {/* Mobile Menu Button */}
-          <button 
+          <button
             className="md:hidden p-2 rounded-lg hover:bg-green-700 transition-colors duration-200"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
               {isMenuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
               ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
               )}
             </svg>
           </button>
@@ -62,32 +73,28 @@ export default function Navbar() {
         {isMenuOpen && (
           <div className="md:hidden mt-4 pb-4 border-t border-green-500 pt-4">
             <div className="flex flex-col space-y-4">
-              <Link 
-                to="/" 
+              <Link
+                to="/"
                 className="text-white hover:text-green-100 font-medium py-3 px-4 rounded-lg hover:bg-green-700 transition-colors duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Beranda
               </Link>
-              <a 
-                href="#features" 
+              <a
+                href="#features"
                 className="text-white hover:text-green-100 font-medium py-3 px-4 rounded-lg hover:bg-green-700 transition-colors duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Fitur
               </a>
-              <Link 
-                to="/contact" 
+              <Link
+                to="/contact"
                 className="text-white hover:text-green-100 font-medium py-3 px-4 rounded-lg hover:bg-green-700 transition-colors duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Kontak
               </Link>
-              <div className="pt-2">
-                <button className="bg-white text-green-600 hover:bg-green-50 font-semibold py-3 rounded-lg transition-colors duration-200 w-full shadow-md">
-                  Masuk
-                </button>
-              </div>
+             
             </div>
           </div>
         )}

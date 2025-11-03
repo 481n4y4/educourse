@@ -1,15 +1,16 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import educourse from "../assets/img/logo.png";
-import ml from "../assets/img/ml.png"
-import dm from "../assets/img/dm.png"
-import fs from "../assets/img/full.png"
+import ml from "../assets/img/ml.png";
+import dm from "../assets/img/dm.png";
+import fs from "../assets/img/full.png";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
     <main className="min-h-screen">
       <Navbar />
-      
+
       {/* Hero Section */}
       <section
         id="home"
@@ -23,12 +24,14 @@ export default function Home() {
           />
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-800 leading-tight">
             Transformasi Masa Depan Anda
-            <span className="block text-green-600 mt-2">Melalui Pendidikan</span>
+            <span className="block text-green-600 mt-2">
+              Melalui Pendidikan
+            </span>
           </h1>
           <p className="text-xl sm:text-2xl text-gray-600 max-w-4xl leading-relaxed">
-            Jelajahi ratusan kursus berkualitas tinggi dari instruktur ahli di bidang 
-            teknologi, bisnis, desain, dan pengembangan karir. Belajar sesuai jadwal Anda, 
-            raih sertifikat, dan tingkatkan karier Anda.
+            Jelajahi ratusan kursus berkualitas tinggi dari instruktur ahli di
+            bidang teknologi, bisnis, desain, dan pengembangan karir. Belajar
+            sesuai jadwal Anda, raih sertifikat, dan tingkatkan karier Anda.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mt-8">
@@ -42,29 +45,59 @@ export default function Home() {
 
           <div className="flex flex-wrap justify-center gap-8 mt-12 text-gray-600">
             <div className="text-center">
-              <div className="text-2xl sm:text-3xl font-bold text-green-600">10K+</div>
+              <div className="text-2xl sm:text-3xl font-bold text-green-600">
+                10K+
+              </div>
               <div className="text-sm sm:text-base">Murid Aktif</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl sm:text-3xl font-bold text-green-600">500+</div>
+              <div className="text-2xl sm:text-3xl font-bold text-green-600">
+                500+
+              </div>
               <div className="text-sm sm:text-base">Kursus Online</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl sm:text-3xl font-bold text-green-600">200+</div>
+              <div className="text-2xl sm:text-3xl font-bold text-green-600">
+                200+
+              </div>
               <div className="text-sm sm:text-base">Instruktur Ahli</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl sm:text-3xl font-bold text-green-600">95%</div>
+              <div className="text-2xl sm:text-3xl font-bold text-green-600">
+                95%
+              </div>
               <div className="text-sm sm:text-base">Tingkat Kepuasan</div>
             </div>
           </div>
         </div>
       </section>
 
+      <section className="py-20 sm:py-24 bg-white min-h-screen flex items-center justify-center">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <div className="flex justify-center items-center order-2 lg:order-1">
+                    <img src={educourse} alt="educourse" className="w-full max-w-md lg:max-w-lg rounded-lg" />
+                </div>
+
+                <div className="flex flex-col justify-center order-1 lg:order-2">
+                    <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-6">Apa itu Educourse?</h2>
+                    <p className="text-lg text-gray-600 leading-relaxed">
+                        Educourse adalah sebuah platform pembelajaran daring (online
+                        learning platform) yang dirancang untuk mendukung pengembangan
+                        diri secara berkelanjutan bagi berbagai kalangan, mulai dari
+                        pelajar sekolah, mahasiswa, hingga profesional. Platform ini
+                        menggabungkan pendekatan interaktif, praktis, dan berbasis proyek
+                        untuk memastikan pembelajaran yang relevan dan aplikatif.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
       {/* Features Section */}
       <section
         id="features"
-        className="py-20 sm:py-24 bg-white min-h-screen flex items-center"
+        className="py-20 sm:py-24 bg-green-50 min-h-screen flex items-center"
       >
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -72,68 +105,63 @@ export default function Home() {
               Mengapa Memilih EduCourse?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Platform pembelajaran online terdepan yang memberikan pengalaman belajar 
-              terbaik untuk masa depan karir Anda
+              Platform pembelajaran online terdepan yang memberikan pengalaman
+              belajar terbaik untuk masa depan karir Anda
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-green-50 rounded-lg p-8 text-center hover:shadow-lg transition-all duration-300 border border-green-100">
-              <div className="bg-green-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-green-600 text-3xl">🎓</span>
+            {[
+              {
+                icon: "🎓",
+                name: "Kurikulum Terupdate",
+                desc: "Materi pembelajaran selalu diperbarui mengikuti perkembangan industri dan teknologi terbaru",
+              },
+              {
+                icon: "👨‍🏫",
+                name: "Instruktur Berpengalaman",
+                desc: "Materi pembelajaran selalu diperbarui mengikuti perkembangan industri dan teknologi terbaru",
+              },
+              {
+                icon: "💻",
+                name: "Fleksibel",
+                desc: "Akses kursus kapan saja, di mana saja melalui berbagai perangkat tanpa batasan waktu",
+              },
+              {
+                icon: "📜",
+                name: "Sertifikat Resmi",
+                desc: "Dapatkan sertifikat kelulusan yang diakui industri untuk meningkatkan nilai CV Anda",
+              },
+            ].map((feature, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-lg p-8 text-center hover:shadow-lg transition-all duration-300 border border-green-100"
+              >
+                <div className="bg-green-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <span className="text-green-600 text-3xl">
+                    {feature.icon}
+                  </span>
+                </div>
+                <h3 className="text-xl font-bold mb-4 text-gray-800">
+                  {feature.name}
+                </h3>
+                <p className="text-gray-600">{feature.desc}</p>
               </div>
-              <h3 className="text-xl font-bold mb-4 text-gray-800">Kurikulum Terupdate</h3>
-              <p className="text-gray-600">
-                Materi pembelajaran selalu diperbarui mengikuti perkembangan industri 
-                dan teknologi terbaru
-              </p>
-            </div>
-
-            <div className="bg-green-50 rounded-lg p-8 text-center hover:shadow-lg transition-all duration-300 border border-green-100">
-              <div className="bg-green-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-green-600 text-3xl">👨‍🏫</span>
-              </div>
-              <h3 className="text-xl font-bold mb-4 text-gray-800">Instruktur Berpengalaman</h3>
-              <p className="text-gray-600">
-                Belajar langsung dari praktisi dan ahli di bidangnya dengan 
-                pengalaman industri yang luas
-              </p>
-            </div>
-
-            <div className="bg-green-50 rounded-lg p-8 text-center hover:shadow-lg transition-all duration-300 border border-green-100">
-              <div className="bg-green-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-green-600 text-3xl">💻</span>
-              </div>
-              <h3 className="text-xl font-bold mb-4 text-gray-800">Fleksibel</h3>
-              <p className="text-gray-600">
-                Akses kursus kapan saja, di mana saja melalui berbagai perangkat 
-                tanpa batasan waktu
-              </p>
-            </div>
-
-            <div className="bg-green-50 rounded-lg p-8 text-center hover:shadow-lg transition-all duration-300 border border-green-100">
-              <div className="bg-green-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-green-600 text-3xl">📜</span>
-              </div>
-              <h3 className="text-xl font-bold mb-4 text-gray-800">Sertifikat Resmi</h3>
-              <p className="text-gray-600">
-                Dapatkan sertifikat kelulusan yang diakui industri untuk 
-                meningkatkan nilai CV Anda
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Popular Courses Preview */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">
               Kursus Populer
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Temukan kursus paling diminati yang akan membawa karir Anda ke level berikutnya
+              Temukan kursus paling diminati yang akan membawa karir Anda ke
+              level berikutnya
             </p>
           </div>
 
@@ -144,24 +172,27 @@ export default function Home() {
                 category: "Teknologi",
                 students: "2.5K",
                 rating: "4.9",
-                imge: fs
+                imge: fs,
               },
               {
                 title: "Data Science & Machine Learning",
                 category: "Data",
                 students: "1.8K",
                 rating: "4.8",
-                imge: ml
+                imge: ml,
               },
               {
                 title: "Digital Marketing Mastery",
                 category: "Bisnis",
                 students: "1.2K",
                 rating: "4.7",
-                imge: dm
-              }
+                imge: dm,
+              },
             ].map((course, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 border border-gray-200">
+              <div
+                key={index}
+                className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 border border-gray-200"
+              >
                 <div className="h-48">
                   <img src={course.imge} alt="image" />
                 </div>
@@ -169,7 +200,9 @@ export default function Home() {
                   <span className="text-sm font-semibold text-green-600 bg-green-100 px-3 py-1 rounded-full">
                     {course.category}
                   </span>
-                  <h3 className="text-xl font-bold mt-4 mb-3 text-gray-800">{course.title}</h3>
+                  <h3 className="text-xl font-bold mt-4 mb-3 text-gray-800">
+                    {course.title}
+                  </h3>
                   <div className="flex justify-between text-gray-600">
                     <span>👨‍🎓 {course.students} Murid</span>
                     <span>⭐ {course.rating}/5</span>
@@ -197,16 +230,19 @@ export default function Home() {
             Siap Memulai Perjalanan Belajar Anda?
           </h2>
           <p className="text-xl text-green-100 max-w-2xl mx-auto mb-8">
-            Bergabunglah dengan ribuan pelajar lainnya yang telah mengubah karir 
+            Bergabunglah dengan ribuan pelajar lainnya yang telah mengubah karir
             mereka melalui pendidikan online
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="px-8 py-4 bg-white hover:bg-gray-100 text-green-600 font-semibold rounded-lg shadow-md transition-colors duration-200">
               Daftar Sekarang - Gratis
             </button>
-            <button className="px-8 py-4 bg-transparent hover:bg-green-700 text-white font-semibold rounded-lg border border-white transition-colors duration-200">
+            <Link
+              to="/contact"
+              className="px-8 py-4 bg-transparent hover:bg-green-700 text-white font-semibold rounded-lg border border-white transition-colors duration-200"
+            >
               Hubungi Kami
-            </button>
+            </Link>
           </div>
         </div>
       </section>
