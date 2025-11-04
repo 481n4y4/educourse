@@ -26,21 +26,14 @@ export default function Contact() {
     priority: "medium",
     message: "",
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [status, setStatus] = useState("");
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
+  const [status, setStatus] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setStatus("");
+    setStatus("Mengirim pesan...");
 
     const serviceID = "service_y3l21vm";
     const templateID = "template_6ns7t9q";
@@ -49,24 +42,39 @@ export default function Contact() {
     emailjs
       .send(serviceID, templateID, formData, publicKey)
       .then((response) => {
-        console.log("success!", response.status, response.text);
-        setStatus("Message sent successfully");
-        setFormData({
-          name: "",
-          lastname: "",
-          email: "",
-          subject: "",
-          priority: "medium",
-          message: "",
+        console.log("Success!", response.status, response.text);
+        setStatus("Pesan berhasil dikirim!");
+        setFormData({ 
+          name: "", 
+          lastname: "", 
+          email: "", 
+          subject: "", 
+          priority: "medium", 
+          message: "" 
         });
       })
       .catch((err) => {
-        console.log("failed....", err);
-        setStatus("Failed to send Message. Please try again later.");
+        console.log("Failed....", err);
+        setStatus("Gagal mengirim pesan. Silakan coba lagi.");
       })
       .finally(() => {
         setIsSubmitting(false);
       });
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+
+  const handlePriorityChange = (value) => {
+    setFormData(prevState => ({
+      ...prevState,
+      priority: value
+    }));
   };
 
   return (
@@ -97,17 +105,6 @@ export default function Contact() {
       {/* Contact Form & Info Section */}
       <section className="py-20 px-4 -mt-10 relative z-20">
         <div className="container mx-auto max-w-7xl">
-          {/* Status Message */}
-          {status && (
-            <div className={`mb-6 p-4 rounded-xl text-center font-medium ${
-              status.includes("success") 
-                ? "bg-green-100 text-green-700 border border-green-200" 
-                : "bg-red-100 text-red-700 border border-red-200"
-            }`}>
-              {status}
-            </div>
-          )}
-
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Contact Information */}
             <div className="lg:col-span-1 space-y-6">
@@ -232,6 +229,18 @@ export default function Contact() {
                   Anda dalam waktu 24 jam.
                 </p>
 
+                {status && (
+                  <div className={`p-4 rounded-xl mb-6 ${
+                    status.includes("berhasil") || status.includes("Success") 
+                      ? "bg-green-100 text-green-700 border border-green-200" 
+                      : status.includes("Mengirim")
+                      ? "bg-blue-100 text-blue-700 border border-blue-200"
+                      : "bg-red-100 text-red-700 border border-red-200"
+                  }`}>
+                    {status}
+                  </div>
+                )}
+
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
@@ -304,7 +313,7 @@ export default function Contact() {
                     <label className="block text-sm font-medium text-gray-700 mb-3">
                       Prioritas Pesan
                     </label>
-                    <div className="flex gap-4">
+                    <div className="flex gap-4 flex-wrap">
                       {[
                         {
                           value: "low",
@@ -336,7 +345,7 @@ export default function Contact() {
                             name="priority"
                             value={priority.value}
                             checked={formData.priority === priority.value}
-                            onChange={handleChange}
+                            onChange={() => handlePriorityChange(priority.value)}
                             className="hidden peer"
                           />
                           <span
@@ -384,17 +393,8 @@ export default function Contact() {
                     disabled={isSubmitting}
                     className="w-full bg-gradient-to-r from-teal-600 to-blue-600 hover:from-teal-700 hover:to-blue-700 text-white font-semibold py-4 px-8 rounded-xl flex items-center justify-center gap-3 shadow-lg transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                   >
-                    {isSubmitting ? (
-                      <>
-                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                        Mengirim Pesan...
-                      </>
-                    ) : (
-                      <>
-                        <FontAwesomeIcon icon={faPaperPlane} />
-                        Kirim Pesan Sekarang
-                      </>
-                    )}
+                    {isSubmitting ? "Mengirim..." : "Kirim Pesan"}
+                    <FontAwesomeIcon icon={faPaperPlane} />
                   </button>
                 </form>
               </div>
